@@ -57,3 +57,12 @@ jobs:
     - name: Strip release binary (Unix)
       if: matrix.job.target != 'x86_64-pc-windows-msvc'
       run: strip "target/${{ matrix.job.target }}/release/code2prompt"
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: target/${{ matrix.job.target }}/release/code2prompt${{ matrix.job.target == 'x86_64-pc-windows-msvc' && '.exe' || '' }}
+        asset_name: code2prompt-${{ matrix.job.target }}${{ matrix.job.target == 'x86_64-pc-windows-msvc' && '.exe' || '' }}
+        asset_content_type: application/octet-stream

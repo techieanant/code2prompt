@@ -1,9 +1,8 @@
-
 # Installation
 
 ## Binary releases
 
-Download the latest binary for your OS from [Releases](https://github.com/mufeedvh/code2prompt/releases).
+Download the latest binary for your OS from [Releases](https://github.com/mufeedvh/code2prompt/releases/latest).
 
 ## Source build
 
